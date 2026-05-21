@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivy & Renan · Istanbul Honeymoon 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A96E;
+  --gold-dark: #8B6B35;
+  --gold-light: #F5E6C8;
+  --cream: #FAF7F2;
+  --deep: #1C1410;
+  --warm: #2C1810;
+  --ink: #2A2218;
+  --muted: #7A6E62;
+  --border: rgba(201,169,110,0.2);
+  --border-strong: rgba(201,169,110,0.45);
+  --surface: #FFFFFF;
+  --bg: #F8F4EE;
+  --red-soft: #FDF0EE;
+  --red-mid: #8B2E1A;
+  --green-soft: #EEF5EE;
+  --green-mid: #1A5C1A;
+  --blue-soft: #EEF2F8;
+  --blue-mid: #1A3A7A;
+  --amber-soft: #FEF8ED;
+  --amber-mid: #7A5A0A;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 220px;
+  background: var(--deep);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar-logo {
+  padding: 28px 20px 20px;
+  border-bottom: 1px solid rgba(201,169,110,0.2);
+}
+.sidebar-logo .flag { font-size: 22px; margin-bottom: 6px; display: block; }
+.sidebar-logo .title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  color: var(--gold);
+  line-height: 1.2;
+}
+.sidebar-logo .sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.sidebar-section {
+  padding: 14px 0 6px;
+}
+.sidebar-section-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  padding: 0 20px 6px;
+  font-weight: 500;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 20px;
+  cursor: pointer;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  border-left: 2px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+.nav-item:hover { color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.05); }
+.nav-item.active { color: var(--gold); border-left-color: var(--gold); background: rgba(201,169,110,0.08); }
+.nav-item .nav-icon { font-size: 16px; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-item .nav-badge {
+  margin-left: auto;
+  background: var(--gold);
+  color: var(--deep);
+  font-size: 9px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(201,169,110,0.15);
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.6;
+}
+
+/* MAIN CONTENT */
+.main {
+  margin-left: 220px;
+  min-height: 100vh;
+}
+
+.page { display: none; padding: 36px 40px; max-width: 900px; }
+.page.active { display: block; }
+
+/* PAGE HEADER */
+.page-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-strong);
+}
+.page-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 500;
+  color: var(--warm);
+  line-height: 1.15;
+}
+.page-subtitle { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-dark);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BOOKING SUMMARY */
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.booking-item {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.booking-item .label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.booking-item .value {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--warm);
+}
+.booking-item .detail {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* FLIGHT ROW */
+.flight-row {
+  display: flex;
+  align-items: center;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  gap: 20px;
+}
+.flight-airline { font-size: 18px; }
+.flight-info { flex: 1; }
+.flight-route { font-size: 16px; font-weight: 500; color: var(--warm); }
+.flight-detail { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.flight-badge {
+  background: var(--gold-light);
+  color: var(--gold-dark);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.flight-ref {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold-dark);
+  font-family: monospace;
+  background: var(--gold-light);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px; top: 10px; bottom: 10px;
+  width: 1px;
+  background: var(--border-strong);
+}
+.tl-item { position: relative; margin-bottom: 18px; }
+.tl-dot {
+  position: absolute;
+  left: -32px;
+  top: 3px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+}
+.tl-dot-inner {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.tl-time {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gold-dark);
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+.tl-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.tl-card:hover { border-color: var(--border-strong); }
+.tl-title { font-size: 14px; font-weight: 500; color: var(--warm); margin-bottom: 4px; }
+.tl-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 7px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.tag-romance { background: #FDF0EE; color: #8B2E1A; }
+.tag-culture { background: #EEF2F8; color: #1A3A7A; }
+.tag-food { background: #EEF5EE; color: #1A5C1A; }
+.tag-transport { background: #F2F2F0; color: #4A4A40; }
+.tag-alert { background: #FDF0EE; color: #8B2E1A; border: 1px solid #F0C0B0; }
+
+/* DAY TABS */
+.day-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.day-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: all 0.2s;
+  text-align: center;
+  line-height: 1.4;
+}
+.day-tab span { display: block; font-size: 10px; color: var(--muted); font-weight: 400; }
+.day-tab:hover { border-color: var(--gold); color: var(--ink); }
+.day-tab.active { background: var(--gold); border-color: var(--gold); color: #fff; }
+.day-tab.active span { color: rgba(255,255,255,0.75); }
+.day-content { display: none; }
+.day-content.active { display: block; }
+
+/* INFO BOX */
+.info-box {
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-left: 3px solid;
+}
+.info-box.warning { background: var(--red-soft); border-color: #D0604A; }
+.info-box.tip { background: var(--amber-soft); border-color: #C49A20; }
+.info-box.info { background: var(--blue-soft); border-color: #4A6AB8; }
+.info-box.success { background: var(--green-soft); border-color: #3A8C3A; }
+.info-box .ib-title { font-size: 12px; font-weight: 500; margin-bottom: 6px; }
+.info-box.warning .ib-title { color: var(--red-mid); }
+.info-box.tip .ib-title { color: var(--amber-mid); }
+.info-box.info .ib-title { color: var(--blue-mid); }
+.info-box.success .ib-title { color: var(--green-mid); }
+.info-box p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.info-box ul { font-size: 13px; color: var(--muted); line-height: 1.8; padding-left: 16px; }
+
+/* CHECKLIST */
+.checklist-group { margin-bottom: 24px; }
+.checklist-group-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.check-item:hover { border-color: var(--border-strong); }
+.check-item.done { background: var(--green-soft); border-color: rgba(58,140,58,0.2); }
+.check-box {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.check-item.done .check-box {
+  background: #3A8C3A;
+  border-color: #3A8C3A;
+  color: white;
+}
+.check-item.done .check-box::after { content: '✓'; font-size: 11px; }
+.check-text { font-size: 13px; color: var(--ink); line-height: 1.5; flex: 1; }
+.check-item.done .check-text { color: var(--muted); text-decoration: line-through; }
+.check-note { font-size: 11px; color: var(--muted); display: block; margin-top: 2px; text-decoration: none; }
+.check-item.done .check-note { text-decoration: line-through; }
+.check-priority {
+  font-size: 9px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+  align-self: center;
+}
+.priority-high { background: var(--red-soft); color: var(--red-mid); }
+.priority-med { background: var(--amber-soft); color: var(--amber-mid); }
+.priority-low { background: var(--green-soft); color: var(--green-mid); }
+
+/* FOOD CARDS */
+.food-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.food-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.food-card:hover { border-color: var(--border-strong); }
+.food-card.must { border-color: var(--gold); }
+.food-card.must::before {
+  content: '★ Must Try';
+  position: absolute;
+  top: -1px; right: 14px;
+  background: var(--gold);
+  color: white;
+  font-size: 9px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 0 0 6px 6px;
+  letter-spacing: 0.08em;
+}
+.food-card.celeb { border-color: #C9A96E; border-width: 2px; }
+.food-card.skip { opacity: 0.65; }
+.food-num {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.food-name { font-size: 15px; font-weight: 500; color: var(--warm); margin-bottom: 3px; }
+.food-place { font-size: 12px; color: var(--gold-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 4px; }
+.food-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.stars { font-size: 14px; margin-top: 8px; }
+.food-verdict {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.verdict-go { background: var(--green-soft); color: var(--green-mid); }
+.verdict-skip { background: var(--red-soft); color: var(--red-mid); }
+.verdict-maybe { background: var(--amber-soft); color: var(--amber-mid); }
+
+/* RESTAURANT TABLE */
+.rest-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.rest-table th {
+  text-align: left;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-dark);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-strong);
+}
+.rest-table td { padding: 12px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.rest-table tr:last-child td { border-bottom: none; }
+.rest-table tr:hover td { background: var(--cream); }
+.price-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.price-1 { background: var(--green-soft); color: var(--green-mid); }
+.price-2 { background: var(--amber-soft); color: var(--amber-mid); }
+.price-3 { background: var(--red-soft); color: var(--red-mid); }
+.rest-badge {
+  font-size: 9px;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  display: inline-block;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.rb-celeb { background: #1C1410; color: var(--gold); }
+.rb-must { background: var(--gold-light); color: var(--gold-dark); }
+.rb-local { background: var(--green-soft); color: var(--green-mid); }
+
+/* PACKING */
+.pack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.pack-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.pack-section-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pack-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--ink);
+}
+.pack-item:last-child { border-bottom: none; }
+.pack-item.packed { color: var(--muted); }
+.pack-item .pc { width: 14px; height: 14px; border: 1.5px solid var(--border-strong); border-radius: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 9px; }
+.pack-item.packed .pc { background: var(--gold); border-color: var(--gold); color: white; }
+
+/* TRANSPORT */
+.transport-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.tc-header {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.tc-header:hover { background: var(--cream); }
+.tc-icon { font-size: 22px; }
+.tc-name { font-size: 15px; font-weight: 500; color: var(--warm); }
+.tc-sub { font-size: 12px; color: var(--muted); }
+.tc-expand { margin-left: auto; color: var(--muted); font-size: 18px; transition: transform 0.2s; }
+.tc-body { display: none; padding: 0 18px 16px; border-top: 1px solid var(--border); }
+.tc-body.open { display: block; }
+.tc-expand.open { transform: rotate(180deg); }
+
+/* WEATHER GRID */
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.weather-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.weather-icon { font-size: 26px; margin-bottom: 6px; }
+.weather-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+.weather-val { font-size: 18px; font-weight: 500; color: var(--warm); }
+.weather-note { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* SOUVENIRS */
+.souvenir-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.souvenir-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.souvenir-icon { font-size: 28px; margin-bottom: 8px; }
+.souvenir-name { font-size: 14px; font-weight: 500; color: var(--warm); margin-bottom: 4px; }
+.souvenir-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+.souvenir-price { font-size: 11px; color: var(--gold-dark); font-weight: 500; margin-top: 6px; }
+
+/* SAFETY */
+.safety-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.safety-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.safety-level {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.level-safe { background: var(--green-soft); color: var(--green-mid); }
+.level-caution { background: var(--amber-soft); color: var(--amber-mid); }
+.level-avoid { background: var(--red-soft); color: var(--red-mid); }
+.safety-title { font-size: 14px; font-weight: 500; color: var(--warm); margin-bottom: 6px; }
+.safety-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+/* SECTION DIVIDER */
+.section-divider {
+  margin: 24px 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-divider-line { flex: 1; height: 1px; background: var(--border-strong); }
+.section-divider-text { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; }
+
+/* PROGRESS BAR */
+.progress-bar { background: var(--border); border-radius: 4px; height: 6px; overflow: hidden; margin-top: 8px; }
+.progress-fill { height: 100%; background: var(--gold); border-radius: 4px; transition: width 0.5s; }
+
+/* EMERGENCY CONTACTS */
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-label { color: var(--muted); }
+.contact-val { font-weight: 500; color: var(--warm); font-family: monospace; letter-spacing: 0.03em; }
+
+/* ANIMATIONS */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.page.active { animation: fadeIn 0.25s ease; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(201,169,110,0.3); border-radius: 2px; }
+
+.checklist-progress {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.cp-stat { text-align: center; }
+.cp-num { font-size: 26px; font-weight: 500; color: var(--warm); font-family: 'Cormorant Garamond', serif; }
+.cp-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.cp-bar { flex: 1; }
+.cp-bar-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <span class="flag">🇹🇷</span>
+    <div class="title">Ivy & Renan<br><em style="font-style:italic">Istanbul 2026</em></div>
+    <div class="sub">4 – 8 June · Honeymoon</div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Overview</div>
+    <div class="nav-item active" onclick="showPage('home')">
+      <span class="nav-icon">✦</span> Trip Summary
+    </div>
+    <div class="nav-item" onclick="showPage('checklist')">
+      <span class="nav-icon">☑</span> Pre-Trip Checklist
+      <span class="nav-badge" id="check-badge">0</span>
+    </div>
+    <div class="nav-item" onclick="showPage('packing')">
+      <span class="nav-icon">🎒</span> Packing List
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Itinerary</div>
+    <div class="nav-item" onclick="showPage('day1')">
+      <span class="nav-icon">①</span> Day 1 · Arrival
+    </div>
+    <div class="nav-item" onclick="showPage('day2')">
+      <span class="nav-icon">②</span> Day 2 · Old City
+    </div>
+    <div class="nav-item" onclick="showPage('day3')">
+      <span class="nav-icon">③</span> Day 3 · Bazaars
+    </div>
+    <div class="nav-item" onclick="showPage('day4')">
+      <span class="nav-icon">④</span> Day 4 · Asia Side
+    </div>
+    <div class="nav-item" onclick="showPage('day5')">
+      <span class="nav-icon">⑤</span> Day 5 · Farewell
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Guides</div>
+    <div class="nav-item" onclick="showPage('food')">
+      <span class="nav-icon">🍽</span> Food Guide
+    </div>
+    <div class="nav-item" onclick="showPage('transport')">
+      <span class="nav-icon">🚇</span> Transport
+    </div>
+    <div class="nav-item" onclick="showPage('culture')">
+      <span class="nav-icon">🕌</span> Culture & Dress
+    </div>
+    <div class="nav-item" onclick="showPage('safety')">
+      <span class="nav-icon">🛡</span> Safety & Weather
+    </div>
+    <div class="nav-item" onclick="showPage('walkingtours')">
+      <span class="nav-icon">🚶</span> Walking Tours
+    </div>
+    <div class="nav-item" onclick="showPage('souvenirs')">
+      <span class="nav-icon">🎁</span> Souvenirs & Cafés
+    </div>
+  </div>
+
+  <div class="sidebar-footer">
+    Booking ref: <strong style="color:var(--gold)">1VNFRT</strong><br>
+    Hotel: 990962246<br>
+    Zeyn Otel · Jun 4–8
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- ===================== HOME ===================== -->
+<div class="page active" id="page-home">
+  <div class="page-header">
+    <div class="page-eyebrow">Honeymoon Travel Plan</div>
+    <div class="page-title">Istanbul,<br><em style="font-style:italic;color:var(--gold)">City of Two Continents</em></div>
+    <div class="page-subtitle">4 – 8 June 2026 · 4 nights · 2 travellers · Zeyn Otel, Sultanahmet</div>
+  </div>
+
+  <div class="booking-grid" style="margin-bottom:20px">
+    <div class="booking-item">
+      <div class="label">Travellers</div>
+      <div class="value">Ivy & Renan</div>
+      <div class="detail">2 adults · Economy</div>
+    </div>
+    <div class="booking-item">
+      <div class="label">Hotel</div>
+      <div class="value">Zeyn Otel Istanbul</div>
+      <div class="detail">King Sea View · Breakfast incl · £251.40 paid</div>
+    </div>
+    <div class="booking-item">
+      <div class="label">Hotel Confirmation</div>
+      <div class="value">990962246</div>
+      <div class="detail">Agoda · Non-refundable · Check-in 14:00</div>
+    </div>
+    <div class="booking-item">
+      <div class="label">Flight Booking Ref</div>
+      <div class="value" style="font-family:monospace;letter-spacing:0.1em">1VNFRT</div>
+      <div class="detail">Booking.com · Pegasus Airlines · Light fare</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">✈ Confirmed Flights</div>
+    <div class="flight-row">
+      <div class="flight-airline">🛫</div>
+      <div class="flight-info">
+        <div class="flight-route">Manchester (MAN) → Istanbul Sabiha Gökçen (SAW)</div>
+        <div class="flight-detail">Thu 4 Jun · 11:55 – 18:00 · Direct · 4h 05m · Pegasus PC1180</div>
+      </div>
+      <span class="flight-badge">Inbound</span>
+      <span class="flight-ref">1VNFRT</span>
+    </div>
+    <div class="flight-row">
+      <div class="flight-airline">🛬</div>
+      <div class="flight-info">
+        <div class="flight-route">Istanbul Sabiha Gökçen (SAW) → Manchester (MAN)</div>
+        <div class="flight-detail">Mon 8 Jun · 10:30 – 12:50 · Direct · 4h 20m · Pegasus PC1181</div>
+      </div>
+      <span class="flight-badge">Return</span>
+      <span class="flight-ref">1VNFRT</span>
+    </div>
+    <div class="info-box warning" style="margin-top:12px;margin-bottom:0">
+      <div class="ib-title">⚠ Departure Day Alert — Mon 8 Jun</div>
+      <p>Your flight is at 10:30. Sabiha Gökçen is on the Asian side of Istanbul. <strong>Depart Zeyn Otel by 07:00 sharp</strong> — pre-book your taxi the night before via BiTaksi or through the hotel. Do not leave this to chance.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">📍 Hotel: Zeyn Otel Istanbul</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+      <div class="booking-item">
+        <div class="label">Room</div>
+        <div class="value">King Sea View</div>
+        <div class="detail">14m² · Non-smoking</div>
+      </div>
+      <div class="booking-item">
+        <div class="label">Stay</div>
+        <div class="value">4 Jun – 8 Jun</div>
+        <div class="detail">4 nights · Check-out 12:00</div>
+      </div>
+      <div class="booking-item">
+        <div class="label">Includes</div>
+        <div class="value">Breakfast + Wi-Fi</div>
+        <div class="detail">Coffee, tea, drinking water</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap">
+      <div class="booking-item" style="flex:1">
+        <div class="label">Hotel Phone</div>
+        <div class="value" style="font-family:monospace">+90 543 517 1799</div>
+      </div>
+      <div class="booking-item" style="flex:1">
+        <div class="label">Location</div>
+        <div class="value">Sultanahmet</div>
+        <div class="detail">Steps from Blue Mosque & Hagia Sophia</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🗓 5-Day Overview</div>
+    <div style="display:grid;gap:8px">
+      <div onclick="showPage('day1')" style="cursor:pointer;display:flex;align-items:center;gap:14px;padding:12px 16px;background:var(--cream);border-radius:8px;border:1px solid var(--border);transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--border-strong)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:18px">🌙</span>
+        <div style="flex:1">
+          <div style="font-weight:500;font-size:14px;color:var(--warm)">Day 1 · Thu 4 Jun — Arrival & Sultanahmet by Night</div>
+          <div style="font-size:12px;color:var(--muted)">Land 18:00 · Transfer · Check-in · Dinner · Night walk</div>
+        </div>
+        <span style="color:var(--gold);font-size:14px">→</span>
+      </div>
+      <div onclick="showPage('day2')" style="cursor:pointer;display:flex;align-items:center;gap:14px;padding:12px 16px;background:var(--cream);border-radius:8px;border:1px solid var(--border);transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--border-strong)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:18px">🕌</span>
+        <div style="flex:1">
+          <div style="font-weight:500;font-size:14px;color:var(--warm)">Day 2 · Fri 5 Jun — Heart of the Old City</div>
+          <div style="font-size:12px;color:var(--muted)">Topkapi Palace · Harem · Blue Mosque · Hagia Sophia · Rooftop dinner</div>
+        </div>
+        <span style="color:var(--gold);font-size:14px">→</span>
+      </div>
+      <div onclick="showPage('day3')" style="cursor:pointer;display:flex;align-items:center;gap:14px;padding:12px 16px;background:var(--cream);border-radius:8px;border:1px solid var(--border);transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--border-strong)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:18px">🛥</span>
+        <div style="flex:1">
+          <div style="font-weight:500;font-size:14px;color:var(--warm)">Day 3 · Sat 6 Jun — Bazaars, Galata & Bosphorus</div>
+          <div style="font-size:12px;color:var(--muted)">Grand Bazaar · Spice Bazaar · Galata Bridge · Walking tour · Sunset cruise</div>
+        </div>
+        <span style="color:var(--gold);font-size:14px">→</span>
+      </div>
+      <div onclick="showPage('day4')" style="cursor:pointer;display:flex;align-items:center;gap:14px;padding:12px 16px;background:var(--cream);border-radius:8px;border:1px solid var(--border);transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--border-strong)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:18px">⛵</span>
+        <div style="flex:1">
+          <div style="font-weight:500;font-size:14px;color:var(--warm)">Day 4 · Sun 7 Jun — Crossing to Asia</div>
+          <div style="font-size:12px;color:var(--muted)">Kadıköy ferry · Local market · Çiya Sofrası · Maiden's Tower</div>
+        </div>
+        <span style="color:var(--gold);font-size:14px">→</span>
+      </div>
+      <div onclick="showPage('day5')" style="cursor:pointer;display:flex;align-items:center;gap:14px;padding:12px 16px;background:var(--cream);border-radius:8px;border:1px solid var(--border);transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--border-strong)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:18px">✈</span>
+        <div style="flex:1">
+          <div style="font-weight:500;font-size:14px;color:var(--warm)">Day 5 · Mon 8 Jun — Farewell</div>
+          <div style="font-size:12px;color:var(--muted)">Sunrise breakfast · Last sweets · 07:00 depart hotel · PC1181 10:30</div>
+        </div>
+        <span style="color:var(--gold);font-size:14px">→</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CHECKLIST ===================== -->
+<div class="page" id="page-checklist">
+  <div class="page-header">
+    <div class="page-eyebrow">Before You Go</div>
+    <div class="page-title">Pre-Trip Checklist</div>
+    <div class="page-subtitle">Click each item to mark it done · Progress saves in your browser</div>
+  </div>
+
+  <div class="checklist-progress">
+    <div class="cp-stat">
+      <div class="cp-num" id="done-count">0</div>
+      <div class="cp-label">Done</div>
+    </div>
+    <div class="cp-stat">
+      <div class="cp-num" id="total-count">0</div>
+      <div class="cp-label">Total</div>
+    </div>
+    <div class="cp-bar">
+      <div class="cp-bar-label" id="progress-label">Let's get started!</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div class="checklist-group">
+    <div class="checklist-group-title">✈ Flights & Documents</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Check in online for PC1180 (opens 24 hours before, Thu 3 Jun 11:55)
+        <span class="check-note">Pegasus Airlines · Booking ref: 1VNFRT</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Check in online for PC1181 return (opens Sun 7 Jun 10:30)
+        <span class="check-note">SAW → MAN · Same booking ref 1VNFRT</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Both passports valid for travel (Turkey requires 6 months validity beyond stay)
+        <span class="check-note">Ivy: Taiwan passport · Renan: Brazilian passport</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Confirm visa requirements
+        <span class="check-note">Brazilian citizens: e-Visa required for Turkey. Taiwanese nationals: check current requirement at evisa.gov.tr</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Download Booking.com and Agoda confirmation PDFs offline
+        <span class="check-note">Hotel res: 990962246 · Flight ref: 1VNFRT</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Take screenshot / print hotel address in Turkish for taxi driver
+        <span class="check-note">Zeyn Otel Istanbul, Sultanahmet Mahallesi, Fatih/İstanbul</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+  </div>
+
+  <div class="checklist-group">
+    <div class="checklist-group-title">💳 Money & Currency</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Do NOT exchange money at Manchester or SAW airports — rates are exploitative
+        <span class="check-note">Exchange at Angun Döviz in Sultanahmet city centre for best rates</span>
+      </div>
+      <span class="check-priority priority-high">CRITICAL</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Carry small cash reserve (£50–100 equivalent in GBP or EUR) for first taxi
+        <span class="check-note">Enough to cover the SAW → hotel transfer while you find better exchange</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Notify your bank of travel to Turkey and Brazil dates
+        <span class="check-note">Prevents card blocks on foreign transactions</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Budget Turkish Lira (TRY) for daily spending
+        <span class="check-note">Food £25–40/day, Topkapi ~£23/person with Harem, Bosphorus cruise £50–120</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+  </div>
+
+  <div class="checklist-group">
+    <div class="checklist-group-title">📱 Apps & Connectivity</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Activate eSIM before landing or buy Turkcell SIM in Sultanahmet
+        <span class="check-note">Airport SIMs cost significantly more · Activate eSIM on the plane</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Download BiTaksi app (Turkish taxi app — metered, safe)
+        <span class="check-note">Never use unmetered taxis · BiTaksi records your route</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Download Google Maps offline for Istanbul
+        <span class="check-note">Download the Fatih, Beyoğlu, and Kadıköy districts</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Download Uber as backup to BiTaksi</div>
+      <span class="check-priority priority-low">NICE</span>
+    </div>
+  </div>
+
+  <div class="checklist-group">
+    <div class="checklist-group-title">🎟 Bookings to Pre-arrange</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Book N'EVET Rooftop Restaurant (Day 2 dinner)
+        <span class="check-note">Popular · Golden Horn views · Book via their website or Instagram</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Book Topkapi Palace tickets online (skip the queue)
+        <span class="check-note">muze.gov.tr · Buy Harem ticket separately · ~£15 + £8</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Book private Bosphorus sunset cruise (Day 3 evening)
+        <span class="check-note">Via Viator, GetYourGuide, or hotel concierge · £50–120/couple</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Book walking tour for Day 3 (Sat 6 Jun) — afternoon slot ~14:00–15:00
+        <span class="check-note">Top pick: Istanbul Clues (istanbulclues.com) · Private · Beyoğlu/Galata · Contact Serhat for June 6th availability</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Pre-book departure morning taxi (Day 5 — critical)
+        <span class="check-note">07:00 from Zeyn Otel · Book via BiTaksi the night before · Non-negotiable</span>
+      </div>
+      <span class="check-priority priority-high">URGENT</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Consider booking Çiya Sofrası (Day 4 lunch — popular)
+        <span class="check-note">Kadıköy · No phone usually needed but arrive when they open</span>
+      </div>
+      <span class="check-priority priority-low">NICE</span>
+    </div>
+  </div>
+
+  <div class="checklist-group">
+    <div class="checklist-group-title">👗 What to Wear / Pack</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Ivy: Pack 2 lightweight headscarves / pashminas for mosque visits
+        <span class="check-note">Keep one in your day bag at all times in Sultanahmet</span>
+      </div>
+      <span class="check-priority priority-high">CRITICAL</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Both: pack outfits covering shoulders and knees for mosque days
+        <span class="check-note">Loose trousers or long skirt · Cardigan or light jacket</span>
+      </div>
+      <span class="check-priority priority-high">CRITICAL</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Pack comfortable, well-worn walking shoes (NOT sandals or heels)
+        <span class="check-note">Istanbul cobblestones are brutal · You'll walk 12,000+ steps/day</span>
+      </div>
+      <span class="check-priority priority-high">CRITICAL</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Pack a light rain layer / packable jacket
+        <span class="check-note">June is mostly sunny but occasional showers · Bosphorus evenings cool</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Pack SPF 50 sunscreen and UV sunglasses
+        <span class="check-note">9–10 hours of June sunshine daily</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Pack a small refillable water bottle
+        <span class="check-note">Only drink bottled/filtered water · Tap water not recommended</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Pack multiple pairs of clean socks
+        <span class="check-note">You remove shoes at every mosque — clean socks are important</span>
+      </div>
+      <span class="check-priority priority-med">SOON</span>
+    </div>
+  </div>
+
+  <div class="checklist-group">
+    <div class="checklist-group-title">🚌 Transport Cards to Get</div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">Buy red Istanbulkart on arrival (kiosks at tram stops, convenience stores)
+        <span class="check-note">~£3 for card + load credit · Works on tram, metro, funicular, ferry</span>
+      </div>
+      <span class="check-priority priority-high">DAY 1</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PACKING ===================== -->
+<div class="page" id="page-packing">
+  <div class="page-header">
+    <div class="page-eyebrow">What to Bring</div>
+    <div class="page-title">Packing List</div>
+    <div class="page-subtitle">Click items to mark as packed</div>
+  </div>
+
+  <div class="pack-grid">
+    <div class="pack-section">
+      <div class="pack-section-title">👗 Clothing</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Comfortable walking shoes</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> 2 headscarves / pashminas (Ivy)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Long skirt or loose trousers</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Light cardigan / cover-up</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Packable rain jacket</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Clean socks (multiple pairs)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Evening / romantic outfit</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Comfortable sandals (evenings)</div>
+    </div>
+
+    <div class="pack-section">
+      <div class="pack-section-title">🌞 Essentials</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Both passports</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Travel insurance docs</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Hotel + flight PDFs printed/offline</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> SPF 50 sunscreen</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> UV sunglasses</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Refillable water bottle</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Small day bag / tote</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Portable charger / power bank</div>
+    </div>
+
+    <div class="pack-section">
+      <div class="pack-section-title">💊 Health & Safety</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Basic first aid / plasters</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Stomach / travel sickness tablets</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Antihistamine (June pollen)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Mosquito repellent (evenings)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Hand sanitiser</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Any prescription medications</div>
+    </div>
+
+    <div class="pack-section">
+      <div class="pack-section-title">📱 Tech</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Phone + charger cable</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> eSIM activated (or buy SIM in Istanbul)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> BiTaksi app downloaded</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Google Maps offline downloaded</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Translation app (Turkish)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Camera / extra memory card</div>
+    </div>
+
+    <div class="pack-section">
+      <div class="pack-section-title">💄 Toiletries</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Toothbrush + toothpaste</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Shampoo + conditioner</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Moisturiser (dry heat)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Lip balm with SPF</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Make-up bag</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Travel towel (backup)</div>
+    </div>
+
+    <div class="pack-section">
+      <div class="pack-section-title">🎒 Accessories</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Cash (small amount GBP/EUR)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Credit / debit card</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Travel adapter (Turkey: Type F)</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Luggage lock</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Compact umbrella</div>
+      <div class="pack-item" onclick="togglePack(this)"><div class="pc"></div> Reusable shopping bag</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 1 ===================== -->
+<div class="page" id="page-day1">
+  <div class="page-header">
+    <div class="page-eyebrow">Thursday, 4 June 2026</div>
+    <div class="page-title">Day 1 — Arrival & the Sultanahmet Glow</div>
+    <div class="page-subtitle">A soft landing into the Old City. Tonight is for atmosphere, not ambition.</div>
+  </div>
+
+  <div class="info-box warning">
+    <div class="ib-title">⚠ Departure from Manchester</div>
+    <p>PC1180 departs 11:55 from MAN. Check in online opens 24 hours before (Wed 3 Jun 11:55). Light fare — check what's included on Booking.com.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-time">11:55</div>
+      <div class="tl-card"><div class="tl-title">Depart Manchester (MAN) · PC1180</div><div class="tl-desc">Pegasus Airlines · Direct · Economy · 4h 05m</div><span class="tag tag-transport">Flight</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-time">18:00</div>
+      <div class="tl-card"><div class="tl-title">Land at Sabiha Gökçen (SAW)</div><div class="tl-desc">Activate your eSIM before disembarking. Do not exchange money here. Ignore all "fixed rate" taxi touts in arrivals — walk past them to the app taxi zone.</div><span class="tag tag-alert">Alert</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-time">18:00 – 19:30</div>
+      <div class="tl-card"><div class="tl-title">Transfer to Zeyn Otel · BiTaksi or Uber</div><div class="tl-desc">Allow 90 minutes for Istanbul traffic. Show driver the hotel address in Turkish: <em>Zeyn Otel, Sultanahmet Mahallesi, Fatih</em>. Estimated cost: 500–700 TRY.</div><span class="tag tag-transport">Transport</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-time">19:30</div>
+      <div class="tl-card"><div class="tl-title">Check In — King Sea View Suite</div><div class="tl-desc">Zeyn Otel Istanbul · Reservation: 990962246 · Room with Sea of Marmara view. Breakfast included from next morning.</div><span class="tag tag-romance">Romance</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-time">20:30</div>
+      <div class="tl-card"><div class="tl-title">Dinner: Sultanahmet Buhara Kebab House</div><div class="tl-desc">Walking distance from hotel. Wood-fired Turkish classics, warm hospitality. Perfect low-key first night — save energy for tomorrow.</div><span class="tag tag-food">Dinner</span></div>
+    </div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      <div class="tl-time">21:30</div>
+      <div class="tl-card"><div class="tl-title">Sultanahmet Square by Night 🌙</div><div class="tl-desc">The Blue Mosque and Hagia Sophia illuminated against the night sky, without daytime crowds. A short walk from the hotel — your first real view of Istanbul together. This is the most romantic thing you'll see tonight.</div><span class="tag tag-romance">Romance</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DAY 2 ===================== -->
+<div class="page" id="page-day2">
+  <div class="page-header">
+    <div class="page-eyebrow">Friday, 5 June 2026</div>
+    <div class="page-title">Day 2 — Heart of the Old City</div>
+    <div class="page-subtitle">Early starts beat crowds. A rooftop dinner over the Golden Horn ends the day perfectly.</div>
+  </div>
+  <div class="info-box tip"><div class="ib-title">🕌 Friday Mosque Note</div><p>The Blue Mosque closes to visitors during Friday prayers. Plan your visit for after 14:30. This naturally works perfectly — morning at Topkapi, afternoon mosques.</p></div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">07:30</div><div class="tl-card"><div class="tl-title">Breakfast at Hotel</div><div class="tl-desc">Included with your room. Enjoy it with your Marmara view before the city wakes up.</div><span class="tag tag-food">Breakfast</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">08:30</div><div class="tl-card"><div class="tl-title">Topkapi Palace & The Harem</div><div class="tl-desc">Buy tickets online in advance. The Harem is ticketed separately — worth every penny. The private world of the Sultans' court, restored to full detail. Don't miss Hagia Irene in the outer courtyard — a Byzantine church most visitors walk past.</div><div style="margin-top:8px;font-size:12px;color:var(--muted)">Budget 3–4 hours · ~£15 entrance + £8 Harem</div><span class="tag tag-culture">Culture</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">13:00</div><div class="tl-card"><div class="tl-title">Lunch — Local Lokanta near Sultanahmet</div><div class="tl-desc">Look for a crowded restaurant with no English menus on the outside. Real Turkish lunch spots serve set meals for very good value. Avoid any place with staff beckoning you in.</div><span class="tag tag-food">Lunch</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">14:30</div><div class="tl-card"><div class="tl-title">Blue Mosque (Sultan Ahmed Mosque)</div><div class="tl-desc">Now opens after Friday prayers. Sunlight through 20,000 İznik tiles — one of the great architectural interiors in the world. Dress: both cover shoulders and knees. Ivy: headscarf on. Remove shoes at the interior rack.</div><span class="tag tag-culture">Culture</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">15:30</div><div class="tl-card"><div class="tl-title">Hagia Sophia</div><div class="tl-desc">Free entry. Built in 537 AD. Now an active mosque — the same dress rules apply. The scale is genuinely overwhelming. Stand in the centre of the nave and look up. Say nothing for a minute.</div><span class="tag tag-culture">Culture</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">17:00</div><div class="tl-card"><div class="tl-title">Istanbul Archaeological Museums</div><div class="tl-desc">A quiet, world-class collection in a garden setting. Often overlooked — a civilised contrast to the morning crowds. Good for a relaxed 90 minutes.</div><span class="tag tag-culture">Culture</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">19:30</div><div class="tl-card"><div class="tl-title">★ Dinner: N'EVET İstanbul Rooftop</div><div class="tl-desc">Pre-book this. Panoramic Golden Horn views. Selected as the centrepiece romantic dinner of the trip. Order mezes to share, watch the city light up across the water. A honeymoon toast moment.</div><div style="margin-top:8px;font-size:12px;color:var(--gold-dark);font-weight:500">Pre-book essential · Mid-high price range</div><span class="tag tag-romance">Romance Dinner</span></div></div>
+  </div>
+</div>
+
+<!-- ===================== DAY 3 ===================== -->
+<div class="page" id="page-day3">
+  <div class="page-header">
+    <div class="page-eyebrow">Saturday, 6 June 2026</div>
+    <div class="page-title">Day 3 — Bazaars, Galata & the Bosphorus</div>
+    <div class="page-subtitle">Saturday is the only day — Grand Bazaar closes every Sunday. End with a private sunset cruise.</div>
+  </div>
+  <div class="info-box warning"><div class="ib-title">⚠ Grand Bazaar: Saturday Only</div><p>The Grand Bazaar is closed on Sundays. This is your one chance. Go this morning.</p></div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">09:30</div><div class="tl-card"><div class="tl-title">Grand Bazaar</div><div class="tl-desc">One of the world's oldest covered markets. Ceramics, leather, carpets, jewellery, spices. Haggling etiquette: start at 50% of the asking price. Respectful, warm negotiation — not confrontational. Fixed-price shops don't haggle.</div><span class="tag tag-culture">Culture</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">11:30</div><div class="tl-card"><div class="tl-title">Egyptian (Spice) Bazaar</div><div class="tl-desc">More intimate, more sensory. Towers of saffron, sumac, rose petals, baklava. Sample freely — sellers are happy to offer tastes. Good place to buy gifts to bring home.</div><span class="tag tag-culture">Culture</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">13:00</div><div class="tl-card"><div class="tl-title">Walk the Galata Bridge</div><div class="tl-desc">Fishermen casting lines above, restaurants below, the skyline of minarets behind you. Cross from Eminönü to Karaköy. One of Istanbul's defining images — a living postcard.</div><span class="tag tag-romance">Romance</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">13:30</div><div class="tl-card"><div class="tl-title">Karaköy Güllüoğlu — Baklava Stop 🥮</div><div class="tl-desc">World-class pistachio baklava. Non-negotiable. Sit in, order two portions with Turkish tea. This will cost less than a coffee at a café and taste 10x better.</div><span class="tag tag-food">Food Stop</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">14:00</div><div class="tl-card"><div class="tl-title">F2 Funicular → Istiklal Avenue</div><div class="tl-desc">Two minutes, one ride, saves your legs the brutal hill from Karaköy to Istiklal. The concierge secret. Use your Istanbulkart. Walk Istiklal — boutiques, bookshops, street music.</div><span class="tag tag-transport">Transport Tip</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">15:00</div><div class="tl-card">
+      <div class="tl-title">★ Walking Tour — Beyoğlu / Galata</div>
+      <div class="tl-desc">A licensed guide brings the Greek, Armenian, Ottoman, and Levantine layers of this neighbourhood to life. This slot slots in perfectly — you've done the bazaars and Galata Bridge in the morning, the tour carries you through Galata and Istiklal, and you finish near Sirkeci in time for dinner and the cruise.</div>
+      <div style="margin-top:12px;display:grid;gap:8px">
+        <div style="background:var(--gold-light);border:1px solid var(--border-strong);border-radius:8px;padding:12px 14px">
+          <div style="font-size:12px;font-weight:500;color:var(--gold-dark);margin-bottom:4px">⭐ Top Pick — Istanbul Clues · Serhat Engül (Private)</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">A licensed guide with 20 years of experience. Private Beyoğlu tour covers Karaköy, Galata Tower, Neve Shalom synagogue, Pera Palace Hotel, and Istiklal Street — tracing Istanbul's Westernisation across the centuries. 3–4 hours. Just the two of you. Repeatedly recommended as the gold standard for this neighbourhood.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">Book directly: istanbulclues.com · Private only · Contact ahead for June 6th availability</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+          <div style="font-size:12px;font-weight:500;color:var(--warm);margin-bottom:4px">Option 2 — "Istanbul Modern City: Galata, Pera & Taksim" · Guide Rose (Tripadvisor)</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">Private 2-hour tour with local storytelling, ending at the Galata Tower. Reviewers call her "passionate and qualified" — one couple said it was the perfect introduction to Istanbul. Lighter and shorter if you prefer more morning bazaar time.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">Book via Tripadvisor Experiences · ~2 hours · Private</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+          <div style="font-size:12px;font-weight:500;color:var(--warm);margin-bottom:4px">Option 3 — "Taksim to Galata: Secret Passages & Local Hangouts" (GetYourGuide)</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">An afternoon walk down Istiklal Street into Galata's backstreets — covering food customs, architecture, lifestyle, and drinking culture. Well-paced and engaging. Free cancellation up to 24 hours before. Good value group option.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">Book via GetYourGuide · Free cancellation · ~2.5 hours</div>
+        </div>
+      </div>
+      <span class="tag tag-culture" style="margin-top:10px">Walking Tour — Book in Advance</span>
+    </div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">18:30</div><div class="tl-card"><div class="tl-title">★ Private Sunset Bosphorus Cruise 🌅</div><div class="tl-desc">The crown jewel of the itinerary. Pre-book a private vessel — public ferries are efficient but not honeymoon-worthy. Watch palaces slide past on the European side, yalis on the Asian shore, minarets in silhouette as the sun drops. Total privacy. Bring a drink. This is the moment.</div><div style="margin-top:8px;font-size:12px;color:var(--gold-dark);font-weight:500">Pre-book via Viator or hotel · £50–120/couple · 2–3 hours</div><span class="tag tag-romance">Honeymoon Highlight</span></div></div>
+  </div>
+</div>
+
+<!-- ===================== DAY 4 ===================== -->
+<div class="page" id="page-day4">
+  <div class="page-header">
+    <div class="page-eyebrow">Sunday, 7 June 2026</div>
+    <div class="page-title">Day 4 — Crossing to Asia</div>
+    <div class="page-subtitle">The real heartbeat of Istanbul lives across the Bosphorus in Kadıköy.</div>
+  </div>
+  <div class="info-box success"><div class="ib-title">✓ Sunday Alternative: Grand Bazaar is closed today</div><p>Egyptian Bazaar remains open on Sundays if you want a last browse. Kadıköy's produce market is the better Sunday choice.</p></div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">09:30</div><div class="tl-card"><div class="tl-title">Ferry: Eminönü → Kadıköy ⛴</div><div class="tl-desc">The most scenic 20-minute commute on earth. Stand on the deck. Sip çay. Watch the city from the water. Use your Istanbulkart. This ferry ride alone is worth crossing the city for.</div><span class="tag tag-romance">Romance</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">10:00</div><div class="tl-card"><div class="tl-title">Kadıköy Produce Market</div><div class="tl-desc">A neighbourhood market untouched by tourist economics. Olives, cheeses, pastries, fresh produce. Buy a breakfast spread and eat on the waterfront. The most local morning experience in Istanbul.</div><span class="tag tag-food">Local Market</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">12:30</div><div class="tl-card"><div class="tl-title">★ Lunch: Çiya Sofrası</div><div class="tl-desc">Chef Musa Dağdeviren's legendary restaurant. Forgotten regional Anatolian dishes — things you won't find anywhere else in Turkey. Arrive when they open to avoid queuing. One of the best meals you'll eat in Istanbul.</div><div style="margin-top:8px;font-size:12px;color:var(--gold-dark);font-weight:500">Mid-range · Kadıköy · No reservations — arrive early</div><span class="tag tag-food">Unmissable Lunch</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">14:30</div><div class="tl-card"><div class="tl-title">Maiden's Tower (Kız Kulesi) 🗼</div><div class="tl-desc">A mythical islet in the middle of the Bosphorus, reached by a short boat. The tower has been a lighthouse, a quarantine station, a James Bond location, and an Ottoman watchtower. The views back to Istanbul from the tower's deck are exceptional.</div><span class="tag tag-romance">Romance</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">Optional</div><div class="tl-card"><div class="tl-title">Alternative: Princess Islands Day Trip</div><div class="tl-desc">If you want a full day escape from the city: take the morning ferry to Büyükada (1 hour from Eminönü). Car-free, horse carriages, pine forests, sea swimming. The most romantic day outside Istanbul proper.</div><span class="tag tag-romance">Option</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">18:30</div><div class="tl-card"><div class="tl-title">Return Ferry + Final Dinner in Galata</div><div class="tl-desc">Cross back to the European side. Dine near the illuminated Galata Tower. Consider Zübeyir Ocakbaşı for traditional Turkish charcoal grill (lamb, kebabs) — a solid final celebration dinner.</div><span class="tag tag-food">Final Dinner</span></div></div>
+  </div>
+</div>
+
+<!-- ===================== DAY 5 ===================== -->
+<div class="page" id="page-day5">
+  <div class="page-header">
+    <div class="page-eyebrow">Monday, 8 June 2026</div>
+    <div class="page-title">Day 5 — Farewell & the Sweetest Exit</div>
+    <div class="page-subtitle">Flight PC1181 at 10:30. Leave hotel by 07:00. No exceptions.</div>
+  </div>
+  <div class="info-box warning"><div class="ib-title">⚠ CRITICAL: Departure Logistics</div><ul><li>Depart Zeyn Otel by <strong>07:00 AM sharp</strong></li><li>Target SAW arrival: 08:30–09:00</li><li>Pre-book BiTaksi or hotel taxi the evening before</li><li>Pack bags and set out all documents the night before</li><li>Hotel check-out is 12:00 — but you leave at 07:00</li></ul></div>
+  <div class="timeline">
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">05:45</div><div class="tl-card"><div class="tl-title">Final Sunrise Breakfast 🌅</div><div class="tl-desc">Included at Zeyn Otel. One last cup of Turkish tea. One last view of the Marmara from your Sea View suite. Take a moment.</div><span class="tag tag-romance">Romance</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">06:30</div><div class="tl-card"><div class="tl-title">Hafiz Mustafa 1864 — If Time Allows</div><div class="tl-desc">A short walk from the hotel. Curate a box of Turkish Delight and lokum to bring back. The most iconic Istanbul souvenir. Also pick up extra baklava for the plane.</div><span class="tag tag-food">Last Treat</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">07:00 ⚠</div><div class="tl-card"><div class="tl-title">Depart Hotel → SAW Airport</div><div class="tl-desc">Pre-booked BiTaksi or hotel transfer. Istanbul traffic at this hour is unpredictable. This time is non-negotiable.</div><span class="tag tag-alert">Departure</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">08:30</div><div class="tl-card"><div class="tl-title">Arrive Sabiha Gökçen (SAW)</div><div class="tl-desc">Check in, security, gate. Light fare — check Pegasus website for baggage rules. Booking ref: 1VNFRT.</div><span class="tag tag-transport">Transport</span></div></div>
+    <div class="tl-item"><div class="tl-dot"><div class="tl-dot-inner"></div></div><div class="tl-time">10:30</div><div class="tl-card"><div class="tl-title">Depart Istanbul — PC1181 ✈</div><div class="tl-desc">SAW → Manchester (MAN) · Direct · 4h 20m · Economy. Arrive 12:50. Booking ref: 1VNFRT. Take Istanbul home with you.</div><span class="tag tag-transport">Return Flight</span></div></div>
+  </div>
+</div>
+
+<!-- ===================== FOOD ===================== -->
+<div class="page" id="page-food">
+  <div class="page-header">
+    <div class="page-eyebrow">What to Eat</div>
+    <div class="page-title">Istanbul Food Guide</div>
+    <div class="page-subtitle">From street food ratings to celebrity restaurants — curated for your honeymoon</div>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Street Food & Local Eats — Rated by Travellers</div><div class="section-divider-line"></div></div>
+
+  <div class="food-grid" style="margin-bottom:24px">
+    <div class="food-card must">
+      <div class="food-num">01</div>
+      <div class="food-name">Trileçe (Three-Milk Cake)</div>
+      <div class="food-place">📍 Hafız Mustafa 1864 · Sirkeci</div>
+      <div class="food-desc">A soaked sponge cake drenched in three types of milk — intensely creamy, rich without being cloying. The standout dessert at Istanbul's most iconic sweet shop. Better than the chicken pudding if you can only order one.</div>
+      <div class="stars">🌕🌕🌕🌕🌗</div>
+      <span class="food-verdict verdict-go">ORDER THIS</span>
+    </div>
+    <div class="food-card">
+      <div class="food-num">02</div>
+      <div class="food-name">Tavuk Göğsü (Chicken Milk Pudding)</div>
+      <div class="food-place">📍 Hafız Mustafa 1864 · Sirkeci</div>
+      <div class="food-desc">A uniquely Turkish dessert — a silky milk pudding made with shredded chicken breast. The texture is surprisingly interesting (savoury-meets-sweet), though a full portion can feel quite heavy by the end. Worth trying a few spoonfuls.</div>
+      <div class="stars">🌕🌕🌕🌕🌗</div>
+      <span class="food-verdict verdict-maybe">TRY A BIT</span>
+    </div>
+    <div class="food-card must">
+      <div class="food-num">03</div>
+      <div class="food-name">Midye Dolma (Stuffed Mussels)</div>
+      <div class="food-place">📍 Street vendors everywhere · Moda Midyecisi in Kadıköy</div>
+      <div class="food-desc">Mussels stuffed with spiced rice, pine nuts, and currants, then steamed and served with a squeeze of lemon. Rich, aromatic, and intensely satisfying. The ultimate Istanbul street snack — you'll end up with oil on your hands and a big smile. Perfect on Day 4 in Kadıköy.</div>
+      <div class="stars">🌕🌕🌕🌕🌕</div>
+      <span class="food-verdict verdict-go">MUST EAT</span>
+    </div>
+    <div class="food-card skip">
+      <div class="food-num">04</div>
+      <div class="food-name">Salt Bae Steak (Nusr-Et)</div>
+      <div class="food-place">📍 Nusr-Et Steakhouse</div>
+      <div class="food-desc">Famous for the internet spectacle — the salt-sprinkling showman. In practice, the performance far outweighs the food quality, and the prices are eye-wateringly high. Travellers consistently rate it mediocre for the cost. Save your money for the private Bosphorus cruise instead.</div>
+      <div class="stars">🌕🌕🌗🌑🌑</div>
+      <span class="food-verdict verdict-skip">SKIP</span>
+    </div>
+    <div class="food-card must">
+      <div class="food-num">05</div>
+      <div class="food-name">Kokoreç (Grilled Lamb Intestines)</div>
+      <div class="food-place">📍 Search "Kokoreç" on Google Maps — vendors everywhere</div>
+      <div class="food-desc">Istanbul's beloved street offal — seasoned lamb intestines wrapped around a spit and grilled over charcoal until the fat crisps and the spices caramelise. The local equivalent of a great sausage sandwich. Pair it with Ayran (cold salted yoghurt drink) — unusual at first sip, completely addictive after that. For adventurous eaters: do not miss this.</div>
+      <div class="stars">🌕🌕🌕🌕🌕</div>
+      <span class="food-verdict verdict-go">MUST TRY</span>
+    </div>
+    <div class="food-card must">
+      <div class="food-num">06</div>
+      <div class="food-name">Balık Dürüm (Grilled Fish Wrap)</div>
+      <div class="food-place">📍 Balık Dürüm Yildirim Usta</div>
+      <div class="food-desc">Freshly grilled fish (usually mackerel or sea bass), tucked into a warm flatbread with salad and pickled vegetables. One of Istanbul's most beloved street meals — so good that travellers forget to photograph it before it's gone. Look for the queue and join it without hesitation.</div>
+      <div class="stars">🌕🌕🌕🌕🌕</div>
+      <span class="food-verdict verdict-go">MUST EAT</span>
+    </div>
+    <div class="food-card">
+      <div class="food-num">07</div>
+      <div class="food-name">Clay Pot Beef + Oil-Poached Prawns</div>
+      <div class="food-place">📍 Old Ottoman Cafe & Restaurant</div>
+      <div class="food-desc">The signature clay pot beef is slow-cooked until fall-apart tender and deeply savoury — the kind of dish that suits people who enjoy bold, umami-forward flavours. The oil-poached prawns and iron-plate aubergine are equally strong. Widely recommended by travellers who found the flavour profile approachable and familiar. Staff are warm and welcoming.</div>
+      <div class="stars">🌕🌕🌕🌕🌗</div>
+      <span class="food-verdict verdict-go">RECOMMENDED</span>
+    </div>
+    <div class="food-card">
+      <div class="food-num">08</div>
+      <div class="food-name">Traditional Charcoal Grill (Ocakbaşı)</div>
+      <div class="food-place">📍 Zübeyir Ocakbaşı · Taksim</div>
+      <div class="food-desc">Lamb skewers, lamb ribs, and köfte grilled over charcoal right in front of you. Straightforward, honest, and reliably delicious — this is Turkish grilled meat at its purest. Not a budget option, but a satisfying final celebratory dinner on Day 4. The lamb rib is the highlight.</div>
+      <div class="stars">🌕🌕🌕🌗🌑</div>
+      <span class="food-verdict verdict-maybe">SOLID CHOICE</span>
+    </div>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Day-by-Day Dining Plan</div><div class="section-divider-line"></div></div>
+
+  <div style="display:grid;gap:14px;margin-bottom:24px">
+
+    <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div style="background:var(--gold);color:#fff;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;white-space:nowrap">DAY 1 · Thu 4 Jun</div>
+        <div style="font-size:13px;color:var(--muted)">Arrival evening — tired, keep it close</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🌙 Dinner — 20:30</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Garden 1897 Restaurant</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">2-minute walk from your hotel on Şht. Mehmetpaşa Sokak. Beautiful garden terrace, romantic but relaxed. Turkish meze, kebabs, grilled fish. Perfect low-key first night — no travel needed after a long flight day.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">★ Walk from hotel · Cards accepted · Romantic garden setting</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🍬 On the way back</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Hafız Mustafa 1864</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">Stop in on your night walk through Sultanahmet Square. Order the Trileçe (three-milk cake) and a Turkish tea. Your first proper Istanbul dessert moment.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">Trileçe — the one to order</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div style="background:var(--gold);color:#fff;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;white-space:nowrap">DAY 2 · Fri 5 Jun</div>
+        <div style="font-size:13px;color:var(--muted)">Old City day — long cultural morning, rooftop dinner</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">☀ Breakfast</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Zeyn Otel (included)</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Breakfast is included with your room. Eat well — you have a big morning ahead at Topkapi.</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🍽 Lunch — 13:00</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Local Lokanta near Palace</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Find a crowded spot with no English menus on the door. Set meal for good value. This is the honest, functional lunch — save appetite for dinner.</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🌆 Dinner — 19:30</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Luco Rooftop · Sirkeci</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">Stunning Bosphorus and Golden Horn views, 10–15 min by tram. Mixed kebabs, seafood, Turkish classics, live music some evenings. Romantic and relaxed — a perfect end to the Old City day.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">Reserve ahead · Cards accepted · Tram from Sultanahmet</div>
+        </div>
+      </div>
+      <div style="margin-top:10px;background:var(--amber-soft);border-left:2px solid #C49A20;border-radius:0 6px 6px 0;padding:10px 12px;font-size:12px;color:var(--amber-mid)">
+        <strong>Upgrade option:</strong> Mikla Restaurant (Marmara Hotel rooftop) — Michelin-noted, Chef Mehmet Gürs, truly special. Reserve weeks in advance if you want the celebrity fine dining experience on this evening.
+      </div>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div style="background:var(--gold);color:#fff;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;white-space:nowrap">DAY 3 · Sat 6 Jun</div>
+        <div style="font-size:13px;color:var(--muted)">Bazaars + Bosphorus cruise — a food-rich day</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🥮 Afternoon Stop</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Karaköy Güllüoğlu</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">After crossing Galata Bridge. World-class pistachio baklava with Turkish tea. Sit in. This is a ritual, not a snack.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500;margin-top:6px">Non-negotiable stop</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🛥 Post-Cruise Dinner</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Pleasure Terrace Rooftop</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">Hoca Paşa / Sirkeci area — 10–15 min by tram after your cruise docks. Casual-trendy rooftop, great cocktails, grilled meats and kebabs. A relaxed wind-down after the evening on the water.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">Reserve for dinner · Late seating available</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🌙 Late Night Option</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Fülane Restaurant</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Hoca Paşa. Turkish-modern art-café vibe. Open until 3am — if you're still going after the cruise and terrace dinner. Manti (Turkish dumplings), hummus, Ottoman grills. Cosy fireplace inside.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500;margin-top:6px">Open until 03:00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div style="background:var(--gold);color:#fff;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;white-space:nowrap">DAY 4 · Sun 7 Jun</div>
+        <div style="font-size:13px;color:var(--muted)">Asia side + return for waterfront dinner</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🦪 Morning Snack</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Midye Dolma — Kadıköy</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">From a street vendor in Kadıköy market. Stuffed mussels with lemon — the perfect Asian-side snack. Rated 5/5 by fellow travellers. Your hands will smell of spices for an hour. Worth it.</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🍽 Lunch — 12:30</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Çiya Sofrası</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Kadıköy. Chef Musa Dağdeviren's legendary forgotten Anatolian recipes. Arrive when they open — it fills fast. The most interesting food you'll eat on the trip.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500;margin-top:6px">★ Unmissable · Arrive early</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🐟 Dinner — 19:00</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Galata Sanat Restaurant</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:6px">Under Galata Bridge on the European side — a natural stop as you cross back from Kadıköy. Seafood: sea bass, grilled fish, stuffed mussels, meze platters. Lively waterfront atmosphere with rakı and beer. The classic Istanbul-by-the-sea experience.</div>
+          <div style="font-size:11px;color:var(--gold-dark);font-weight:500">Tram from Eminönü · No reservation needed usually</div>
+        </div>
+      </div>
+      <div style="margin-top:10px;background:var(--blue-soft);border-left:2px solid #4A6AB8;border-radius:0 6px 6px 0;padding:10px 12px;font-size:12px;color:var(--blue-mid)">
+        <strong>Alternative dinner:</strong> Ruvia Restaurant on Kennedy Caddesi (Cankurtaran seafront) — walkable back to your hotel afterward, sea-view rooftop, mixed kebabs and grilled sea bass. Good if you want to end the evening close to home.
+      </div>
+    </div>
+
+    <div class="card" style="border-left:3px solid var(--gold);border-radius:0 12px 12px 0">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px">
+        <div style="background:var(--gold);color:#fff;font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;letter-spacing:0.08em;white-space:nowrap">DAY 5 · Mon 8 Jun</div>
+        <div style="font-size:13px;color:var(--muted)">Farewell — flight at 10:30, leave hotel 07:00</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">☀ Breakfast — 05:45</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Zeyn Otel (included)</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">Last breakfast with your Marmara view. Pack the night before. Eat well — airport food is expensive. Leave hotel by 07:00 sharp.</div>
+        </div>
+        <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:500;color:var(--gold-dark);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px">🍬 Final Stop — 06:30</div>
+          <div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Hafız Mustafa 1864</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6">A box of Turkish Delight and lokum to bring home. Also pick up extra baklava for the flight. The sweetest possible exit from Istanbul.</div>
+          <div style="font-size:11px;color:var(--red-mid);font-weight:500;margin-top:6px">⚠ Back at hotel by 06:55 · Taxi at 07:00</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">All Restaurants at a Glance</div><div class="section-divider-line"></div></div>
+
+  <div class="card">
+    <div class="card-title">🍽 Full Restaurant Reference</div>
+    <table class="rest-table">
+      <thead><tr><th>Restaurant</th><th>Cuisine</th><th>Price</th><th>Assigned Day</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Garden 1897</strong><span class="rest-badge rb-must">★ CLOSEST</span></td><td>Turkish meze & grill</td><td><span class="price-tag price-2">££</span></td><td>Day 1 dinner · 2-min walk from hotel · Garden terrace</td></tr>
+        <tr><td><strong>Luco Rooftop · Sirkeci</strong><span class="rest-badge rb-must">★ BOOK NOW</span></td><td>Turkish classics & seafood</td><td><span class="price-tag price-2">££</span></td><td>Day 2 dinner · Bosphorus & Golden Horn views · Live music some evenings</td></tr>
+        <tr><td><strong>Mikla Restaurant</strong><span class="rest-badge rb-celeb">CELEBRITY</span></td><td>Modern Turkish fine dining</td><td><span class="price-tag price-3">£££</span></td><td>Day 2 upgrade option · Michelin-noted · Chef Mehmet Gürs · Book weeks ahead</td></tr>
+        <tr><td><strong>Pleasure Terrace Rooftop</strong><span class="rest-badge rb-must">★ BOOK NOW</span></td><td>Grilled meats & cocktails</td><td><span class="price-tag price-2">££</span></td><td>Day 3 dinner · Post-cruise wind-down · Casual-trendy rooftop in Sirkeci</td></tr>
+        <tr><td><strong>Fülane Restaurant</strong></td><td>Modern Turkish / art-café</td><td><span class="price-tag price-2">££</span></td><td>Day 3 late night option · Open until 03:00 · Manti, hummus, Ottoman grills</td></tr>
+        <tr><td><strong>Çiya Sofrası</strong><span class="rest-badge rb-must">★ UNMISSABLE</span></td><td>Regional Anatolian</td><td><span class="price-tag price-1">£</span></td><td>Day 4 lunch in Kadıköy · Legendary forgotten recipes · Arrive early</td></tr>
+        <tr><td><strong>Galata Sanat Restaurant</strong><span class="rest-badge rb-must">★ BOOK NOW</span></td><td>Seafood & meze</td><td><span class="price-tag price-2">££</span></td><td>Day 4 dinner · Under Galata Bridge · Waterfront atmosphere · Rakı & beer</td></tr>
+        <tr><td><strong>Ruvia Restaurant</strong></td><td>Turkish grill & seafood</td><td><span class="price-tag price-2">££</span></td><td>Day 4 dinner alternative · Cankurtaran seafront · Walkable back to hotel</td></tr>
+        <tr><td><strong>Lotus Restaurant & Cafe</strong></td><td>Turkish & international</td><td><span class="price-tag price-1">£</span></td><td>Flexible backup any day · Hoca Paşa · Casual, open until 23:30</td></tr>
+        <tr><td><strong>Karaköy Güllüoğlu</strong><span class="rest-badge rb-must">★ BAKLAVA</span></td><td>Sweets & baklava</td><td><span class="price-tag price-1">£</span></td><td>Day 3 afternoon · After crossing Galata Bridge · Pistachio baklava with tea</td></tr>
+        <tr><td><strong>Hafız Mustafa 1864</strong></td><td>Turkish confectionery</td><td><span class="price-tag price-1">£</span></td><td>Day 1 night walk + Day 5 last stop · Trileçe, Turkish Delight, lokum for gifts</td></tr>
+        <tr><td><strong>Old Ottoman Cafe</strong><span class="rest-badge rb-local">LOCAL FAV</span></td><td>Ottoman Turkish</td><td><span class="price-tag price-2">££</span></td><td>Flex day · Clay pot beef · Oil-poached prawns · Warm service</td></tr>
+        <tr><td><strong>Zübeyir Ocakbaşı</strong></td><td>Charcoal grill / kebab</td><td><span class="price-tag price-2">££</span></td><td>Day 4 evening alternative · Taksim · Lamb ribs and skewers over charcoal</td></tr>
+        <tr><td><strong>Zuma Istanbul</strong><span class="rest-badge rb-celeb">CELEBRITY</span></td><td>Japanese contemporary</td><td><span class="price-tag price-3">£££</span></td><td>Optional splurge · Levent · International celebrity dining · Book ahead</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===================== TRANSPORT ===================== -->
+<div class="page" id="page-transport">
+  <div class="page-header">
+    <div class="page-eyebrow">Getting Around</div>
+    <div class="page-title">Transport Guide</div>
+    <div class="page-subtitle">Click each transport type to expand. Get your Istanbulkart on Day 1.</div>
+  </div>
+
+  <div class="info-box warning">
+    <div class="ib-title">⚠ Taxi Safety — Read Before You Arrive</div>
+    <p>Never accept a "fixed rate" taxi. Never negotiate a price before getting in. If a driver refuses the meter or quotes you a flat price — get out immediately. Use <strong>BiTaksi or Uber only</strong>. Both apps record your route and fare, providing a paper trail and accountability.</p>
+  </div>
+
+  <div class="transport-card">
+    <div class="tc-header" onclick="toggleTransport(this)">
+      <div class="tc-icon">🚌</div>
+      <div><div class="tc-name">Istanbulkart (Red Card)</div><div class="tc-sub">Essential — buy on Day 1 · Works on everything</div></div>
+      <div class="tc-expand">▾</div>
+    </div>
+    <div class="tc-body">
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 8px;line-height:1.7">The red Istanbulkart is the single most important thing to buy on arrival. Available at kiosks at any tram stop or convenience store (Migros, BIM). Load it with credit and tap for every journey — tram, metro, funicular, ferry, and bus. Far cheaper than single tickets or taxi for every short trip.</p>
+      <div class="info-box info" style="margin:0"><div class="ib-title">Where to buy</div><p>Tram stop kiosks (look for the IETT logo) · Convenience stores near hotel · Cost: ~£3 for card + top up with as much credit as you want</p></div>
+    </div>
+  </div>
+
+  <div class="transport-card">
+    <div class="tc-header" onclick="toggleTransport(this)">
+      <div class="tc-icon">📱</div>
+      <div><div class="tc-name">BiTaksi & Uber</div><div class="tc-sub">For all taxis — download before you land</div></div>
+      <div class="tc-expand">▾</div>
+    </div>
+    <div class="tc-body">
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 8px;line-height:1.7">BiTaksi is the Turkish equivalent of Uber — it summons licensed yellow taxis with the meter guaranteed. Uber also operates in Istanbul. Use either app for every single taxi journey. The fare is set by the meter, your route is recorded, and the driver knows someone is watching.</p>
+      <div class="info-box warning" style="margin:0"><div class="ib-title">NEVER do this</div><ul><li>Accept a price quoted before getting in</li><li>Use unmarked or private cars in arrivals</li><li>Agree to a "shorter route" or "faster way" suggestion</li></ul></div>
+    </div>
+  </div>
+
+  <div class="transport-card">
+    <div class="tc-header" onclick="toggleTransport(this)">
+      <div class="tc-icon">🚊</div>
+      <div><div class="tc-name">Tram T1 — Sultanahmet Line</div><div class="tc-sub">Your main line · Connects all Old City sights</div></div>
+      <div class="tc-expand">▾</div>
+    </div>
+    <div class="tc-body">
+      <p style="font-size:13px;color:var(--muted);margin:14px 0;line-height:1.7">The T1 tram runs from Kabataş through Karaköy, across Galata Bridge, through Eminönü, and along the Old City to Sultanahmet, Çemberlitaş, and beyond. This is your daily workhorse. Sultanahmet stop is right by the Blue Mosque and Zeyn Otel. Crowded at rush hour — keep bags in front.</p>
+    </div>
+  </div>
+
+  <div class="transport-card">
+    <div class="tc-header" onclick="toggleTransport(this)">
+      <div class="tc-icon">⚡</div>
+      <div><div class="tc-name">F2 Funicular — The Concierge Secret</div><div class="tc-sub">Karaköy → Istiklal in 2 minutes</div></div>
+      <div class="tc-expand">▾</div>
+    </div>
+    <div class="tc-body">
+      <p style="font-size:13px;color:var(--muted);margin:14px 0;line-height:1.7">Most tourists attempt to walk up the steep hill from Karaköy to Istiklal Avenue. Don't. The F2 Funicular whisks you up in exactly 2 minutes. Take it every time. The hill is brutal, especially in June heat after a full day of sightseeing. Istanbulkart only.</p>
+    </div>
+  </div>
+
+  <div class="transport-card">
+    <div class="tc-header" onclick="toggleTransport(this)">
+      <div class="tc-icon">⛴</div>
+      <div><div class="tc-name">Ferries — Eminönü Hub</div><div class="tc-sub">Cross to Asia · Most scenic transport</div></div>
+      <div class="tc-expand">▾</div>
+    </div>
+    <div class="tc-body">
+      <p style="font-size:13px;color:var(--muted);margin:14px 0;line-height:1.7">Istanbul's ferries run from Eminönü (near Galata Bridge) to Kadıköy (Asian side, 20 min), Üsküdar (15 min), and the Princes' Islands (1 hour). The ferry is the most romantic way to experience Istanbul — standing on deck with a tea, watching the skyline. All Istanbulkart.</p>
+      <div class="info-box info" style="margin:0"><div class="ib-title">Day 4 Ferry Route</div><p>Eminönü → Kadıköy · Depart ~09:30 · 20 minutes · Return same route evening · Weather dependent but June is usually calm</p></div>
+    </div>
+  </div>
+
+  <div class="transport-card">
+    <div class="tc-header" onclick="toggleTransport(this)">
+      <div class="tc-icon">🚗</div>
+      <div><div class="tc-name">SAW Airport Transfer</div><div class="tc-sub">Critical for arrival & departure day</div></div>
+      <div class="tc-expand">▾</div>
+    </div>
+    <div class="tc-body">
+      <p style="font-size:13px;color:var(--muted);margin:14px 0 8px;line-height:1.7">Sabiha Gökçen is on the Asian side of Istanbul. Transfer to Sultanahmet takes 60–90 minutes in normal traffic, potentially 2+ hours at peak times. Always allow maximum time.</p>
+      <div class="info-box warning" style="margin:0"><div class="ib-title">Arrival (Day 1): SAW → Zeyn Otel</div><p>Use BiTaksi app from airport. Estimated fare: 500–700 TRY. Journey: 60–90 min. Do NOT exchange money at airport ATMs.</p></div>
+      <div class="info-box warning" style="margin-top:10px;margin-bottom:0"><div class="ib-title">Departure (Day 5): Zeyn Otel → SAW 07:00</div><p>Pre-book via BiTaksi or hotel the night before. Departure is 07:00 SHARP. Target arrival at SAW by 08:30 for 10:30 flight.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CULTURE ===================== -->
+<div class="page" id="page-culture">
+  <div class="page-header">
+    <div class="page-eyebrow">Customs & Respect</div>
+    <div class="page-title">Culture, Dress & Etiquette</div>
+    <div class="page-subtitle">Istanbul is warm and welcoming — a few customs will make your experience exceptional</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🕌 Mosque Protocol — Mandatory</div>
+    <div class="info-box warning" style="margin-bottom:12px"><div class="ib-title">Dress Rules — both of you, every mosque</div><ul><li><strong>Shoulders:</strong> Must be fully covered. No sleeveless tops.</li><li><strong>Knees:</strong> Must be fully covered. No shorts or short skirts.</li><li><strong>Ivy:</strong> Headscarf required. Carry a lightweight one in your bag at all times in Sultanahmet.</li><li><strong>Shoes:</strong> Remove at the rack INSIDE the mosque — NOT on the street. Walk in clean socks to the rack, then remove shoes. Stepping on prayer carpet in street-soiled socks is disrespectful.</li><li><strong>Blue Mosque Friday:</strong> Closed to visitors during Friday prayers — open again after ~14:30.</li></ul></div>
+    <div class="info-box tip"><div class="ib-title">What to carry in your day bag</div><ul><li>Lightweight pashmina or scarf (Ivy — always)</li><li>A cardigan or shirt you can layer over sleeveless tops</li><li>Clean socks (both)</li></ul></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🤝 Social Etiquette — The Important Ones</div>
+    <div style="display:grid;gap:8px">
+      <div style="background:var(--red-soft);border-left:3px solid #D0604A;border-radius:0 8px 8px 0;padding:12px 14px">
+        <div style="font-size:12px;font-weight:500;color:var(--red-mid);margin-bottom:4px">⚠ Most Important: Nose Blowing</div>
+        <div style="font-size:13px;color:var(--muted)">Blowing your nose loudly at a restaurant table is considered deeply offensive in Turkish culture. If you need to, excuse yourself quietly to the bathroom. This is the single most common way tourists accidentally offend.</div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:500;color:var(--warm);margin-bottom:4px">Haggling in Bazaars</div>
+        <div style="font-size:13px;color:var(--muted)">Expected and welcomed in Grand Bazaar and street markets. Start at ~50% of asking price. Warm, respectful dialogue — not confrontational. Fixed-price shops (malls, modern boutiques) do NOT haggle.</div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:500;color:var(--warm);margin-bottom:4px">Tea / Coffee Hospitality</div>
+        <div style="font-size:13px;color:var(--muted)">Shop owners and even strangers may offer you çay (tea). Accepting is a social gesture. You are not obligated to buy anything. Refusing politely is fine — a smile and "Teşekkürler" is enough.</div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:500;color:var(--warm);margin-bottom:4px">Alcohol</div>
+        <div style="font-size:13px;color:var(--muted)">Legal and widely available in licensed bars and restaurants. Do not drink in open public spaces like squares or parks. Perfectly acceptable in your hotel, rooftop restaurants, and licensed establishments.</div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px 14px">
+        <div style="font-size:12px;font-weight:500;color:var(--warm);margin-bottom:4px">Photography</div>
+        <div style="font-size:13px;color:var(--muted)">Always ask before photographing people. Inside mosques, be discreet — never photograph during prayer times. Most sights allow photography; some interior museum pieces may be restricted.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🗣 Essential Turkish Phrases</div>
+    <table class="rest-table">
+      <thead><tr><th>Turkish</th><th>Pronunciation</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Merhaba</strong></td><td>Mer-HA-ba</td><td>Hello — always warmly received</td></tr>
+        <tr><td><strong>Teşekkürler</strong></td><td>Teh-sheh-KYUR-ler</td><td>Thank you (formal)</td></tr>
+        <tr><td><strong>Sağ ol</strong></td><td>Sa-OL</td><td>Thank you (informal / friendly)</td></tr>
+        <tr><td><strong>Lütfen</strong></td><td>LYUT-fen</td><td>Please</td></tr>
+        <tr><td><strong>Ne kadar?</strong></td><td>Neh kah-DAR</td><td>How much?</td></tr>
+        <tr><td><strong>Çok güzel</strong></td><td>Chok gyoo-ZEL</td><td>Very beautiful — use it everywhere</td></tr>
+        <tr><td><strong>Bir çay lütfen</strong></td><td>Beer CHAI lyut-fen</td><td>One tea please — magic words</td></tr>
+        <tr><td><strong>Tuvalet nerede?</strong></td><td>Too-va-LET neh-reh-DEH</td><td>Where is the toilet?</td></tr>
+        <tr><td><strong>Kolay gelsin</strong></td><td>Ko-LAI gel-SIN</td><td>Said to someone working — shows respect, earns smiles</td></tr>
+        <tr><td><strong>İyi geceler</strong></td><td>Ee-yee geh-jeh-LER</td><td>Good night</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===================== SAFETY & WEATHER ===================== -->
+<div class="page" id="page-safety">
+  <div class="page-header">
+    <div class="page-eyebrow">Be Prepared</div>
+    <div class="page-title">Safety & Weather</div>
+    <div class="page-subtitle">Istanbul in June is safe and beautiful. A few things to know.</div>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">June Weather</div><div class="section-divider-line"></div></div>
+
+  <div class="weather-grid">
+    <div class="weather-item">
+      <div class="weather-icon">🌡</div>
+      <div class="weather-label">Daytime Temp</div>
+      <div class="weather-val">25–28°C</div>
+      <div class="weather-note">Warm & sunny</div>
+    </div>
+    <div class="weather-item">
+      <div class="weather-icon">🌙</div>
+      <div class="weather-label">Evening Temp</div>
+      <div class="weather-val">18–20°C</div>
+      <div class="weather-note">Bring a layer</div>
+    </div>
+    <div class="weather-item">
+      <div class="weather-icon">☀</div>
+      <div class="weather-label">Sunshine</div>
+      <div class="weather-val">9–10 hrs</div>
+      <div class="weather-note">Sunset ~20:30</div>
+    </div>
+    <div class="weather-item">
+      <div class="weather-icon">🌧</div>
+      <div class="weather-label">Rain Risk</div>
+      <div class="weather-val">Low</div>
+      <div class="weather-note">Pack umbrella</div>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <div class="ib-title">☂ Should We Bring an Umbrella?</div>
+    <p>Yes — pack a compact one. June is mostly sunny but occasional showers pass quickly. If rain hits, duck into the Pera Museum or Archaeological Museums — both are world-class and air-conditioned.</p>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Safety by Area</div><div class="section-divider-line"></div></div>
+
+  <div class="safety-grid">
+    <div class="safety-card">
+      <span class="safety-level level-safe">Safe</span>
+      <div class="safety-title">Sultanahmet (Old City)</div>
+      <div class="safety-desc">Where you're staying. Very tourist-friendly, well-policed. Watch your pockets in crowds and on the tram. Keep bags in front at all times. Avoid dark alleys at 2am.</div>
+    </div>
+    <div class="safety-card">
+      <span class="safety-level level-safe">Safe</span>
+      <div class="safety-title">Beyoğlu / Istiklal / Galata</div>
+      <div class="safety-desc">Busy, lively, safe for evening dining and walking. Higher pickpocket risk on Istiklal Avenue itself — keep valuables in a front pocket or zip bag.</div>
+    </div>
+    <div class="safety-card">
+      <span class="safety-level level-safe">Safe</span>
+      <div class="safety-title">Kadıköy (Asian side)</div>
+      <div class="safety-desc">Very local, very safe. One of the most relaxed neighbourhoods. Families, students, markets. Lower tourist scam risk than the European side.</div>
+    </div>
+    <div class="safety-card">
+      <span class="safety-level level-caution">Caution</span>
+      <div class="safety-title">Taxi Scams</div>
+      <div class="safety-desc">The main risk for tourists. Always use BiTaksi or Uber. Never negotiate a fixed price. If the driver takes "a different route," open Google Maps and monitor. End the ride if uncomfortable.</div>
+    </div>
+    <div class="safety-card">
+      <span class="safety-level level-caution">Caution</span>
+      <div class="safety-title">Tourist Restaurant Traps</div>
+      <div class="safety-desc">Any restaurant where staff shout at you or place menus in your hands on the street — walk past. Look for crowded places where locals are eating. Check Google reviews before sitting down.</div>
+    </div>
+    <div class="safety-card">
+      <span class="safety-level level-safe">Safe</span>
+      <div class="safety-title">For Ivy (Taiwanese national)</div>
+      <div class="safety-desc">Turkey is welcoming to Asian visitors. No specific safety concerns. Scammers target tourists of all nationalities — use common sense. Keep your passport in the hotel safe when sightseeing.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <div class="card-title">📞 Emergency Contacts</div>
+    <div class="contact-row"><div class="contact-label">Turkey General Emergency</div><div class="contact-val">112</div></div>
+    <div class="contact-row"><div class="contact-label">Tourist Police</div><div class="contact-val">156</div></div>
+    <div class="contact-row"><div class="contact-label">Zeyn Otel Istanbul</div><div class="contact-val">+90 543 517 1799</div></div>
+    <div class="contact-row"><div class="contact-label">Pegasus Airlines</div><div class="contact-val">+90 850 034 0737</div></div>
+    <div class="contact-row"><div class="contact-label">UK Consulate Istanbul</div><div class="contact-val">+90 212 334 6400</div></div>
+    <div class="contact-row"><div class="contact-label">Renan's Booking.com</div><div class="contact-val">40-939616815</div></div>
+    <div class="contact-row"><div class="contact-label">Ivy's Booking.com</div><div class="contact-val">40-939634219</div></div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-title">💳 Visa Reminder</div>
+    <div class="info-box warning" style="margin:0"><div class="ib-title">Check this before you travel</div><ul><li><strong>Renan (Brazilian passport):</strong> e-Visa required for Turkey. Apply at evisa.gov.tr before departure. Usually approved instantly.</li><li><strong>Ivy (Taiwanese passport):</strong> Check current requirements at evisa.gov.tr — Taiwan passport holders may require e-Visa. Verify the latest rules as they can change.</li><li>Apply at least 2 weeks before travel. Keep the e-Visa confirmation on your phone offline.</li></ul></div>
+  </div>
+</div>
+
+<!-- ===================== WALKING TOURS ===================== -->
+<div class="page" id="page-walkingtours">
+  <div class="page-header">
+    <div class="page-eyebrow">Day 3 · Saturday 6 June</div>
+    <div class="page-title">Walking Tour Guide</div>
+    <div class="page-subtitle">Book for the afternoon slot (~14:00–15:00) on Day 3 — flows naturally from the bazaars into the Galata/Istiklal area before your cruise and dinner</div>
+  </div>
+
+  <div class="info-box success">
+    <div class="ib-title">✓ Why Day 3 is the perfect day</div>
+    <p>Your morning is already in the bazaar area (Grand Bazaar → Spice Bazaar → Galata Bridge → Karaköy baklava). The walking tour picks up from there, taking you through Galata and Beyoğlu, and drops you naturally near Sirkeci in time for Pleasure Terrace dinner and the Bosphorus cruise. One flowing geographic journey — no backtracking, no wasted travel. Days 1, 2, and 4 are already full; Day 5 you're leaving.</p>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Top Pick — Book This One First</div><div class="section-divider-line"></div></div>
+
+  <div class="card" style="border:2px solid var(--gold)">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px">
+      <div>
+        <div style="font-size:10px;font-weight:500;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px">⭐ Recommended · Private · 3–4 Hours</div>
+        <div style="font-size:20px;font-weight:500;color:var(--warm);margin-bottom:3px">Istanbul Clues — Beyoğlu Walking Tour</div>
+        <div style="font-size:13px;color:var(--gold-dark);font-weight:500">Guide: Serhat Engül · Licensed · 20+ years experience</div>
+      </div>
+      <div style="background:var(--gold);color:#fff;font-size:10px;font-weight:500;padding:5px 12px;border-radius:6px;white-space:nowrap;letter-spacing:0.08em;flex-shrink:0">PRIVATE ONLY</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px">
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+        <div style="font-size:11px;font-weight:500;color:var(--gold-dark);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">What's Covered</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.8">
+          · Karaköy waterfront district<br>
+          · Galata Tower (exterior + area)<br>
+          · Neve Shalom — Istanbul's largest synagogue<br>
+          · Pera Palace Hotel (Orient Express history)<br>
+          · Istiklal Street architecture & hidden courtyards<br>
+          · Ottoman Westernisation across the centuries
+        </div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:14px">
+        <div style="font-size:11px;font-weight:500;color:var(--gold-dark);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Why It's Special</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.8">
+          · Fully private — just Ivy & Renan<br>
+          · 20 years of licensed guiding experience<br>
+          · Covers places average tourists never see<br>
+          · Food & restaurant recommendations along the route<br>
+          · Repeatedly cited as the gold standard on Rick Steves & Tripadvisor forums<br>
+          · Flexible pace — romantic, unhurried
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--gold-light);border-radius:8px;padding:14px 16px;margin-bottom:12px">
+      <div style="font-size:12px;font-weight:500;color:var(--gold-dark);margin-bottom:6px">How to Book</div>
+      <div style="font-size:13px;color:var(--ink);line-height:1.7">Go to <strong>istanbulclues.com</strong> → contact Serhat directly via the form on the site. Mention you want the <em>Beyoğlu walking tour</em> on <strong>Saturday 6 June 2026</strong>, starting around 14:00–15:00 for two people. He books up in peak season — contact as soon as possible.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:22px;margin-bottom:4px">⏱</div>
+        <div style="font-size:12px;font-weight:500;color:var(--warm)">3–4 Hours</div>
+        <div style="font-size:11px;color:var(--muted)">Duration</div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:22px;margin-bottom:4px">👥</div>
+        <div style="font-size:12px;font-weight:500;color:var(--warm)">Private Only</div>
+        <div style="font-size:11px;color:var(--muted)">Just you two</div>
+      </div>
+      <div style="background:var(--cream);border:1px solid var(--border);border-radius:8px;padding:12px;text-align:center">
+        <div style="font-size:22px;margin-bottom:4px">📍</div>
+        <div style="font-size:12px;font-weight:500;color:var(--warm)">Karaköy start</div>
+        <div style="font-size:11px;color:var(--muted)">After baklava stop</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Alternative Options</div><div class="section-divider-line"></div></div>
+
+  <div style="display:grid;gap:14px">
+
+    <div class="card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px">
+        <div>
+          <div style="font-size:11px;font-weight:500;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Option 2 · Private · ~2 Hours</div>
+          <div style="font-size:17px;font-weight:500;color:var(--warm)">Istanbul Modern City: Galata, Pera & Taksim</div>
+          <div style="font-size:13px;color:var(--gold-dark)">Guide: Rose · Tripadvisor Experiences</div>
+        </div>
+        <div style="background:var(--blue-soft);color:var(--blue-mid);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;white-space:nowrap;flex-shrink:0">TRIPADVISOR</div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:10px">A private 2-hour tour covering local stories and neighbourhood insights, ending at the Galata Tower. Reviewers describe Rose as passionate and knowledgeable — one couple said it was "the perfect introduction after arriving in Istanbul." A lighter option if you want a shorter tour and more time in the morning bazaars. Good for a relaxed honeymoon pace.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="tag tag-culture">Private</span>
+        <span class="tag tag-transport">~2 hours</span>
+        <span style="font-size:11px;color:var(--gold-dark);font-weight:500;align-self:center">Book via Tripadvisor Experiences · Search "Istanbul Modern City Galata"</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px">
+        <div>
+          <div style="font-size:11px;font-weight:500;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Option 3 · Group · ~2.5 Hours</div>
+          <div style="font-size:17px;font-weight:500;color:var(--warm)">Taksim to Galata: Secret Passages & Local Hangouts</div>
+          <div style="font-size:13px;color:var(--gold-dark)">GetYourGuide · Free cancellation</div>
+        </div>
+        <div style="background:var(--green-soft);color:var(--green-mid);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;white-space:nowrap;flex-shrink:0">FREE CANCEL</div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:10px">An afternoon walk down Istiklal Street into Galata's backstreets, zigzagging toward the Galata Tower through hidden passages and courtyards. Covers food customs, architecture, lifestyle, drinking culture, and local history. Well-paced and engaging. Small group format — less intimate than private but more affordable. Free cancellation up to 24 hours before.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="tag tag-culture">Small group</span>
+        <span class="tag tag-transport">~2.5 hours</span>
+        <span style="font-size:11px;color:var(--gold-dark);font-weight:500;align-self:center">Book via GetYourGuide · Search "Taksim to Galata Secret Passages"</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px">
+        <div>
+          <div style="font-size:11px;font-weight:500;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Free Option · Tip-Based</div>
+          <div style="font-size:17px;font-weight:500;color:var(--warm)">Free Walking Tours — GuruWalk / FreeTour.com</div>
+          <div style="font-size:13px;color:var(--gold-dark)">Tip-based · Multiple routes daily</div>
+        </div>
+        <div style="background:var(--amber-soft);color:var(--amber-mid);font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;white-space:nowrap;flex-shrink:0">FREE</div>
+      </div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:10px">Multiple free walking tours run daily across Istanbul — tip-based (€10–15/person is standard). The "Old &amp; New City at Sunset" route (17:00, 2.5h) covers Eminönü → Spice Bazaar → Galata Bridge → Karaköy rooftops → Istiklal nightlife — a great sunset option after the Bosphorus cruise if you want evening energy. Book via GuruWalk or FreeTour.com. Groups can be larger; less personal than private.</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span class="tag tag-culture">Group tour</span>
+        <span class="tag tag-food">Tip: €10–15/person</span>
+        <span style="font-size:11px;color:var(--gold-dark);font-weight:500;align-self:center">guruwalk.com or freetour.com</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Comparison at a Glance</div><div class="section-divider-line"></div></div>
+
+  <div class="card">
+    <table class="rest-table">
+      <thead><tr><th>Tour</th><th>Type</th><th>Duration</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Istanbul Clues · Serhat</strong><span class="rest-badge rb-must">★ PICK THIS</span></td><td>Private only</td><td>3–4 hrs</td><td>Most personal, most depth, honeymoon-perfect · istanbulclues.com</td></tr>
+        <tr><td><strong>Guide Rose · Galata & Pera</strong></td><td>Private</td><td>~2 hrs</td><td>Shorter, lighter, equally romantic · Tripadvisor Experiences</td></tr>
+        <tr><td><strong>Taksim to Galata · Secret Passages</strong></td><td>Small group</td><td>~2.5 hrs</td><td>Great value, free cancellation · GetYourGuide</td></tr>
+        <tr><td><strong>Free Tour · GuruWalk</strong></td><td>Group</td><td>2.5 hrs</td><td>Budget option · Sunset route lovely · Tip-based</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box tip">
+    <div class="ib-title">💡 Tip — What to tell your guide</div>
+    <p>When booking, mention it's your honeymoon. Most guides are happy to build in small romantic moments — a viewpoint pause, a local tea stop, a less-crowded route. Serhat at Istanbul Clues is known for going well beyond the standard script for private clients.</p>
+  </div>
+</div>
+
+<!-- ===================== SOUVENIRS ===================== -->
+<div class="page" id="page-souvenirs">
+  <div class="page-header">
+    <div class="page-eyebrow">Shopping & Experiences</div>
+    <div class="page-title">Souvenirs, Cafés & Hidden Gems</div>
+    <div class="page-subtitle">What to bring home, where to sit, and the small joys worth seeking out</div>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">What to Buy</div><div class="section-divider-line"></div></div>
+
+  <div class="souvenir-grid">
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🍬</div>
+      <div class="souvenir-name">Turkish Delight (Lokum)</div>
+      <div class="souvenir-desc">The definitive Istanbul souvenir. Buy at Hafız Mustafa 1864 or the Spice Bazaar — not airport shops. Rose, pistachio, pomegranate varieties.</div>
+      <div class="souvenir-price">£5–20 per box · Gift-wrapped available</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🏺</div>
+      <div class="souvenir-name">İznik Ceramics</div>
+      <div class="souvenir-desc">Hand-painted in the style of the Blue Mosque tiles. Bowls, plates, tiles. Buy from specialist shops in Sultanahmet — haggle respectfully in the bazaar.</div>
+      <div class="souvenir-price">£10–80 depending on size</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🧿</div>
+      <div class="souvenir-name">Nazar Boncuğu (Evil Eye)</div>
+      <div class="souvenir-desc">The blue glass evil eye — Turkey's most iconic symbol. Buy the real glass ones, not plastic. Beautiful on walls, bags, or as keychains. Good for gifts.</div>
+      <div class="souvenir-price">£1–20 · Everywhere in the bazaar</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🫖</div>
+      <div class="souvenir-name">Turkish Tea Set (Çay Takımı)</div>
+      <div class="souvenir-desc">The iconic tulip-shaped çay glasses with saucers. Bring Istanbul's tea ceremony home. Available in the Grand Bazaar in beautiful copper or glass versions.</div>
+      <div class="souvenir-price">£15–50 for a set</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🥮</div>
+      <div class="souvenir-name">Baklava (Boxed)</div>
+      <div class="souvenir-desc">Karaköy Güllüoğlu sells boxes specifically for travel. Pistachio baklava keeps for days. The best food gift you can bring home from Istanbul.</div>
+      <div class="souvenir-price">£10–25 per box</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🌶</div>
+      <div class="souvenir-name">Spices from Spice Bazaar</div>
+      <div class="souvenir-desc">Saffron, sumac, pul biber (red pepper), dried mint. Buy vacuum-sealed where possible. Brings Istanbul's flavour home to cook with.</div>
+      <div class="souvenir-price">£3–15 per bag</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🪔</div>
+      <div class="souvenir-name">Copper Lamp / Lantern</div>
+      <div class="souvenir-desc">Hand-hammered copper lanterns and lamps in the Grand Bazaar. Adds a piece of Ottoman atmosphere to your home. Check airline baggage rules before buying large ones.</div>
+      <div class="souvenir-price">£20–100</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">🧣</div>
+      <div class="souvenir-name">Pashmina / Turkish Towel</div>
+      <div class="souvenir-desc">Lightweight peshtemal (Turkish bath towel) — functional, beautiful, and packable. Also works as a mosque cover. Buy at the bazaar, not tourist shops.</div>
+      <div class="souvenir-price">£15–40</div>
+    </div>
+    <div class="souvenir-card">
+      <div class="souvenir-icon">☕</div>
+      <div class="souvenir-name">Turkish Coffee (Türk Kahvesi)</div>
+      <div class="souvenir-desc">Ground fine, brewed in a cezve. Buy a bag of specialty coffee from Kurukahveci Mehmet Efendi near the Spice Bazaar — Istanbul's most famous coffee roaster since 1871.</div>
+      <div class="souvenir-price">£5–12 per bag</div>
+    </div>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Cafés & Coffee Spots Worth Seeking</div><div class="section-divider-line"></div></div>
+
+  <div class="card">
+    <div class="card-title">☕ Where to Sit, Sip & Slow Down</div>
+    <table class="rest-table">
+      <thead><tr><th>Café / Spot</th><th>Area</th><th>Why Go</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mandabatmaz</strong></td><td>Galata / Istiklal</td><td>Istanbul's most legendary Turkish coffee. Tiny hole-in-the-wall, always a queue. Worth every minute. Get here for the coffee ritual.</td></tr>
+        <tr><td><strong>Kurukahveci Mehmet Efendi</strong></td><td>Eminönü (Spice Bazaar area)</td><td>Istanbul's most famous coffee roaster since 1871. Buy whole-bean or ground to take home. The scent of the shop alone is worth the detour.</td></tr>
+        <tr><td><strong>Hafız Mustafa 1864</strong></td><td>Sultanahmet / Sirkeci</td><td>Sit-in café for sweets with Turkish tea. The Trileçe and baklava are extraordinary. Also brilliant for gift shopping.</td></tr>
+        <tr><td><strong>Karaköy Güllüoğlu</strong></td><td>Karaköy</td><td>Sit at a table with çay and fresh baklava. A proper afternoon ritual.</td></tr>
+        <tr><td><strong>Nişantaşı neighbourhood</strong></td><td>Nişantaşı (European)</td><td>Istanbul's upscale café district — more contemporary, European-feeling. Good for a different pace after the historic sights.</td></tr>
+        <tr><td><strong>Bosphorus waterfront café</strong></td><td>Bebek or Arnavutköy</td><td>If you venture north along the European shore — seafront cafés in these villages. Sea breeze, tea, the water right beside you.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-divider"><div class="section-divider-line"></div><div class="section-divider-text">Hidden Gems & Unexpected Moments</div><div class="section-divider-line"></div></div>
+
+  <div style="display:grid;gap:10px">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:14px">
+      <span style="font-size:22px;flex-shrink:0">🌅</span>
+      <div><div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Sunrise from your hotel window</div><div style="font-size:13px;color:var(--muted);line-height:1.6">Your Sea View suite faces the Marmara. Set one alarm early on any morning — the light on the water at dawn in June is extraordinary. You don't need to leave the room.</div></div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:14px">
+      <span style="font-size:22px;flex-shrink:0">🚶</span>
+      <div><div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Get deliberately lost in Balat</div><div style="font-size:13px;color:var(--muted);line-height:1.6">Istanbul's colourful old Jewish and Greek neighbourhood. Pastel-painted houses on steep streets, cats everywhere, small galleries and cafés. A short walk or tram from Sultanahmet.</div></div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:14px">
+      <span style="font-size:22px;flex-shrink:0">🐱</span>
+      <div><div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Istanbul's famous cats</div><div style="font-size:13px;color:var(--muted);line-height:1.6">Istanbul has thousands of beloved street cats — they're a city institution, fed and cared for by locals. You'll encounter them in mosques, markets, and cafés. They are essentially co-owners of the city.</div></div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:14px">
+      <span style="font-size:22px;flex-shrink:0">🍵</span>
+      <div><div style="font-size:14px;font-weight:500;color:var(--warm);margin-bottom:4px">Order çay everywhere, always</div><div style="font-size:13px;color:var(--muted);line-height:1.6">"Bir çay lütfen" — one tea please. Turkish çay in a tulip glass costs almost nothing and buys you a seat, a pause, and a very Turkish moment. Do it constantly.</div></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const page = document.getElementById('page-' + id);
+  if (page) page.classList.add('active');
+  const navMap = {
+    home: 0, checklist: 1, packing: 2,
+    day1: 3, day2: 4, day3: 5, day4: 6, day5: 7,
+    food: 8, transport: 9, culture: 10, safety: 11, walkingtours: 12, souvenirs: 13
+  };
+  const items = document.querySelectorAll('.nav-item');
+  if (navMap[id] !== undefined) items[navMap[id]].classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  updateCheckProgress();
+  saveChecks();
+}
+
+function updateCheckProgress() {
+  const all = document.querySelectorAll('.check-item');
+  const done = document.querySelectorAll('.check-item.done');
+  const total = all.length;
+  const doneCount = done.length;
+  document.getElementById('done-count').textContent = doneCount;
+  document.getElementById('total-count').textContent = total;
+  const pct = total ? Math.round((doneCount / total) * 100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  const badge = document.getElementById('check-badge');
+  badge.textContent = (total - doneCount);
+  const labels = ['Let\'s get started!', 'Off to a great start!', 'Halfway there!', 'Almost ready!', 'You\'re all set! ✦'];
+  const idx = pct >= 100 ? 4 : pct >= 75 ? 3 : pct >= 50 ? 2 : pct >= 20 ? 1 : 0;
+  document.getElementById('progress-label').textContent = labels[idx];
+}
+
+function saveChecks() {
+  const states = [];
+  document.querySelectorAll('.check-item').forEach(el => states.push(el.classList.contains('done') ? 1 : 0));
+  try { localStorage.setItem('istanbul_checks', JSON.stringify(states)); } catch(e) {}
+}
+
+function loadChecks() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('istanbul_checks') || '[]');
+    const items = document.querySelectorAll('.check-item');
+    saved.forEach((s, i) => { if (s && items[i]) items[i].classList.add('done'); });
+  } catch(e) {}
+  updateCheckProgress();
+}
+
+function togglePack(el) {
+  el.classList.toggle('packed');
+  if (el.classList.contains('packed')) el.querySelector('.pc').textContent = '✓';
+  else el.querySelector('.pc').textContent = '';
+}
+
+function toggleTransport(header) {
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.tc-expand');
+  body.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+
+loadChecks();
+</script>
+</body>
+</html>
